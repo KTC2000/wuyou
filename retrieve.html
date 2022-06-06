@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>找房无忧-找回密码</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/register.css">
+    <script src=""></script>
+</head>
+
+<body>
+    <!-- 顶部栏 -->
+    <header>
+        <ul>
+            <li>
+                <a href="#"><img class="logo" src="./image/index/logo.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="./myLogin.html"><img class="aa wode" src="./image/index/my.jpg" alt=""></a>
+                <a href="#"><img class="aa  xiazai" src="./image/index/xiazai.jpg" alt=""></a>
+            </li>
+        </ul>
+    </header>
+    <!-- 导航栏 -->
+    <article>
+        <div class="nav">
+            <a href="./index.html">首页</a>
+            <a href="./retrieve.html">>找回密码</a>
+
+        </div>
+    </article>
+
+    <!-- 输入框 -->
+    <div class="box">
+        <form>
+            <div class="inp">
+                <input type="tel" class="inp1" id="username" placeholder="请输入手机号码" pattern="^1[3578]\d{9}$">
+                <a href="#" id="getCode" class="yanzheng">获取验证码</a>
+                <span id="message1"></span>
+            </div>
+            <div class="inp">
+                <input type="text" class="inp1" id="verific" placeholder="请输入短信中的验证码">
+                <span id="ver2"></span>
+            </div>
+            <div class="inp">
+                <input type="password" id="psd" class="inp1" placeholder="请输入新密码" pattern="^\w{6,12}$">
+                <span id="message2"></span>
+            </div>
+            <div class="inp">
+                <input type="password" id="psd2" class="inp1" placeholder="请输入确认密码" pattern="^\w{6,12}$">
+                <span id="message3"></span>
+            </div>
+
+            <button id="submitBtn" onclick="submit()"> <a href="#">提交</a></button>
+        </form>
+
+    </div>
+</body>
+
+</html>
+
+<script src="js/setRem.js"></script>
+<script src="./js/yanzheng.js"></script>
+<script src="./js/jquery-3.6.0.js"></script>
+<script src="./js/myCookie.js"></script>
+<script>
+    // 验证成功跳转页面
+    submitBtn.onclick = function () {
+        if (user.onblur() && psd.onblur() && psd2.onblur()) {
+            document.getElementsByTagName("button")[0].button(location.href = "login.html");
+
+        }
+    }
+</script>

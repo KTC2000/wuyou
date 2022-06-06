@@ -1,0 +1,66 @@
+.guanzhu{
+    height: 0.39rem;
+    line-height: 0.36rem;
+    background: #ffffff;
+    border-bottom: 1px solid #c5c5c5;
+    padding-left: 0.15rem;
+    font-size: 0.17rem;
+    
+}
+.guanzhu span {
+    color: rgb(15, 15, 15);
+    /* font-size: 0.17; */
+}
+
+/* 内容 */
+.content{
+    padding: 0.1rem;
+    font-size: 0.15rem;
+}
+.content li{
+    padding: 0.2rem 0;
+    border-bottom: 1px solid #ff8a00 ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content{
+    padding: 0 0.2rem;
+    font-size: 0.15rem;
+}
+.content li{
+    padding: 0.2rem 0;
+    border-bottom: 1px solid #ff8a00;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content li:last-of-type{
+    border-bottom: none;
+}
+.content .left img{
+    width: 0.99rem;
+    height: 0.94rem;
+}
+.content .right{
+    width: 1.87rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+}
+.content .right a {
+    font-size: 0.18rem;
+    color: #000;
+}
+
+.content .right p{
+    color: #000;
+    line-height: 0.21rem;
+}
+.content .right p:first-of-type{
+    margin-top: 0.05rem;
+}
+.content .right strong{
+    color: #ff8a00;
+    margin-left: 0.18rem;
+}

@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* 广告图 */
+.guangGao{
+    width: 100%;
+    height: 2.8rem;
+    background: url(../image/index/banner.png);
+    position: relative;
+    background-size:cover ;
+}
+
+.search{
+    position: absolute;
+    left: 0.2rem;
+    bottom: 0.1rem;
+}
+
+.sousuoTu{
+    position: absolute;
+    left: 0.1rem;
+    bottom: 0.09rem;
+    width: 0.165rem;
+    height: 0.165rem;
+    background: url("../image/index/seach.jpg") 0 center no-repeat;
+    background-size: cover;
+    z-index: 2;
+}
+
+.search1{
+    width: 2.79rem;
+    height: 0.35rem;
+    border-radius: 6px;
+    padding-left: 0.25rem;
+}
+/* 中间导航 */
+.zNavigation ul {
+    height: 1.28rem;
+    background: #ff8a00;
+    font-size: 0.15rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.zNavigation ul li {
+    width: 0.55rem;
+    height: 0.54rem;
+    margin-top: 0.18rem;
+
+}
+
+
+.zNavigation ul a {
+    color: rgb(255, 255, 255);
+    width: 0.6rem;
+    height: 0.5rem;
+    display: inline-block;
+    padding-top:0.7rem;
+    box-sizing: border-box;
+    text-align: center;
+    /* font-size: 15px; */
+}
+.zNavigation ul li:nth-of-type(1) a {
+    background: url(../image/index/index_03.png) 0 0 no-repeat;
+    background-size: contain;
+}
+.zNavigation ul li:nth-of-type(2) a {
+    background: url(../image/index/index_05.png) 0 0 no-repeat;
+    background-size: contain;
+}
+.zNavigation ul li:nth-of-type(3) a {
+    background: url(../image/index/index_07.png) 0 0 no-repeat;
+    background-size: contain;
+}
+.zNavigation ul li:nth-of-type(4) a {
+    background: url(../image/index/index_09.png) 0 0 no-repeat;
+    background-size: contain;
+}
+
+/* 中间广告图 */
+.guangGao2{
+    padding: 0.2rem 0;
+    background: rgb(255, 255, 255);
+}
+.guangGao2 img{
+    width: 100%;
+}
+/* 热门房源 */
+.housingResource {
+    margin-bottom: 0.05rem;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.housingResource h2 {
+    background: #ff8a00;
+    font-size: 0.14rem;
+    color: #fff;
+    padding: 0.1rem 0 0.08rem 0.2rem;
+
+}
+.housingResource h2 strong{
+    font-size: 0.18rem;
+}
+.housingResource h2 span {
+    font-size: 0.09rem;
+}
+
+
+
+.housingResource2 {
+    margin: 0 0.2rem;
+}
+
+.housingResource2 li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem 0;
+    border-bottom: 1px solid red;
+}
+.housingResource2 li:last-of-type{
+    border-bottom:none;
+}
+.housingResource2 li .img img{
+    width: 0.81rem;
+    height: 0.81rem;
+}
+
+.housingResource2 li .text h3{
+    font-size: 0.18rem;
+    width: 1.87rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.housingResource2 li .text p{
+    font-size: 0.12rem;
+    padding: 0.05rem 0;
+    color: #000;
+    overflow: hidden;
+
+}
+.housingResource2 li .text p:nth-of-type(2){
+    color: #8b8b8b;
+}
+.housingResource2 li .text strong{
+    color: #ff8a00;
+    float: right;
+}
+.housingResource2 li .text p:nth-of-type(2) span{
+    color: #999999;
+    float: right;
+}
+.housingResource2 li .text p a{
+    color: #849aae;
+    background: #f4f7f9;
+    padding: 0.02rem 0.04rem;
+}
+/*  热门关注*/
+.neirong1{
+    background: #ffffff;
+    border-top: 1px solid #e5e5e5;
+
+}
+.neirong1 ul.title{
+    font-size: 0.18rem;
+    border-bottom: 1px solid #ff8a00;
+    display: flex;
+    line-height: 0.54rem;
+}
+.neirong1 ul.title li{
+    flex: 1;
+    text-align: center;
+}
+.neirong1 ul.title .remen{
+    border-bottom: 1px solid #ff8a00;
+}
+.neirong1 ul.title .remen a{
+    color: #ff8a00;
+}
+.neirong1 .content{
+    font-size: 0.12rem;
+    display: flex;
+}
+.neirong1 .content ul{
+    flex: 1;
+    text-align: left;
+    margin: 0.12rem 0 0.12rem 0.2rem;
+}
+.neirong1 .content ul li{
+    line-height: 0.28rem;
+}
+
+
+/* 弹窗 */
+.download{
+    width: 100%;
+    height: 0.5rem;
+    background: rgba(0,0,0,0.5);
+    line-height: 0.5rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    padding-left: 0.2rem;
+}
+.download .close{
+    width: 0.14rem;
+    height: 0.15rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.below{
+    display: flex;
+    justify-content: space-around;
+    flex: 6;
+    font-size: 0.12rem;
+    color: #fff;
+}
+.below .icon img{
+    width: 0.3rem;
+    height: 0.3rem;
+    margin-top: 0.1rem;
+}
+.below .text{
+    margin-top: -0.1rem;
+}
+.below .text p:nth-of-type(1){
+    height: 0.18rem;
+    font-size: 0.18rem ;
+}
+
+.below .text p:nth-of-type(2){
+     height: 0.12rem;
+}
+
+.xiazai{
+    background: #ff8a00;
+    flex: 4;
+    line-height:0.5rem ;
+    font-size: 0.16rem;
+    text-align: center;
+}
+.xiazai a{
+    color: #fff;
+}

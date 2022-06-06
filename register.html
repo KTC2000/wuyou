@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>找房无忧-注册</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/register.css">
+
+</head>
+
+<body>
+    <!-- 顶部栏 -->
+    <header>
+        <ul>
+            <li>
+                <a href="#"><img class="logo" src="./image/index/logo.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="./myLogin.html"><img class="aa wode" src="./image/index/my.jpg" alt=""></a>
+                <a href="#"><img class="aa  xiazai" src="./image/index/xiazai.jpg" alt=""></a>
+            </li>
+        </ul>
+    </header>
+    <!-- 导航栏 -->
+    <article>
+        <div class="nav">
+            <a href="./index.html">首页</a>
+            <a href="./myLogin.html">>我的</a>
+            <a href="./register.html">>注册</a>
+        </div>
+    </article>
+
+    <!-- 输入框 -->
+    <div class="box">
+        <form action="" id="signUpForm">
+            <div class="inp">
+                <input type="text" class="inp1" id="username" placeholder="请输入手机号" pattern="^1[3578]\d{9}$">
+                <span id="message1"></span>
+            </div>
+
+            <div class="inp">
+                <input type="tel" class="inp1" id="verific" placeholder="请输入手机号验证码">
+                <a href="#" id="getCode" class="yanzheng">获取验证码</a>
+                <span id="ver2"></span>
+            </div>
+            <div class="inp">
+                <input type="password" id="psd" class="inp1" placeholder="请输入密码" pattern="^\w{6,12}$">
+                <span id="message2"></span>
+            </div>
+
+            <button id="submitBtn" onclick="submit()"><a href="#">立即注册</a></button>
+        </form>
+
+    </div>
+</body>
+
+</html>
+
+<script src="js/setRem.js"></script>
+<script src="./js/jquery-3.6.0.js"></script>
+<script src="./js/myCookie.js"></script>
+<script>
+    /*获取span标签*/
+    var user = document.getElementById("username"),
+        ver = document.getElementById('verific'),
+        psd = document.getElementById("psd"),
+        myspan = document.getElementsByTagName("span"),
+        user_s = myspan[0],
+        ver_s = myspan[1],
+        psd_s = myspan[2],
+        submitBtn = document.getElementById("submitBtn");
+    //当光标聚集到文本框时，span标签里的文字显示
+    user.onfocus = function () {
+        user_s.style.display = "block";
+        //光标再次聚集文本框时，改变文字显示
+        user_s.innerHTML = '<i class="ati"></i>输入11位的手机号码'
+    }
+    user.onblur = function () {
+        //正则判断
+        reg = /^[\w\u4e00-\u9fa5]{6,12}$/;
+        //如果值为空，则span标签的内容改为“不能为空”
+        if (user.value == '') {
+            user_s.innerHTML = '<i class="err"></i>不能为空';
+            return false;
+        }
+        //如果长度不在6-12之间并且存在非法字符
+        else if (!reg.test(user.value)) {
+            user_s.innerHTML = '<i class="err"></i>长度不在范围内或者存在非法字符'
+            return false;
+        }
+        //用户名输入与要求一致
+        else {
+            user_s.innerHTML = '<i class="ok"></i>正确'
+            return true
+        }
+    }
+
+    // 验证成功跳转页面
+    submitBtn.onclick = function () {
+        if (user.onblur() && psd.onblur()) {
+            document.getElementsByTagName("form")[0].button(location.href = "login.html");
+        }
+    }
+
+    // 验证码
+    ver.onfocus = function () {
+        ver_s.style.display = "block";
+        //光标再次聚集文本框时，改变文字显示
+        ver_s.innerHTML = '<i class="ati"></i>6个字符的正确验证码'
+    }
+    ver.onblur = function () {
+        //正则判断
+        reg = /^[\w\u4e00-\u9fa5]{6,6}$/;
+        //如果值为空，则span标签的内容改为“不能为空”
+        if (ver.value == '') {
+            ver_s.innerHTML = '<i class="err"></i>不能为空';
+            return false;
+        }
+        //如果长度不在6-12之间并且存在非法字符
+        else if (!reg.test(ver.value)) {
+            ver_s.innerHTML = '<i class="err"></i>长度不在范围内或者存在非法字符'
+            return false;
+        }
+        //用户名输入与要求一致
+        else {
+            ver_s.innerHTML = '<i class="ok"></i>正确'
+            return true
+        }
+    }
+    //当光标聚集到密码框时，span标签里的文字显示
+    psd.onfocus = function () {
+        psd_s.style.display = 'block';
+        //光标再次聚集密码框时，改变文字显示
+        psd_s.innerHTML = '<i class="ati"></i>长度在6-12个字符'
+    }
+    psd.onblur = function () {
+        //不能为空
+        //长度在6-12之间 字母数字下划线       
+        //不能全是数字
+        //不能全是字母
+        var reg = /^\w{6,12}$/;
+        var reg1 = /[^0-9]/;
+        var reg2 = /[^a-zA-Z]/;
+        //不能为空
+        if (psd.value == '') {
+            psd_s.innerHTML = '<i class="err"></i>不能为空';
+            return false;
+        }
+        //长度在6-12之间 字母数字下划线
+        else if (!reg.test(psd.value)) {
+            psd_s.innerHTML = '<i class="err"></i>长度不在范围内或者存在非法字符'
+            return false;
+        }
+        //不能全是数字  
+        else if (!reg1.test(psd.value)) {
+            psd_s.innerHTML = '<i class="err"></i>不能全是数字'
+            return false;
+        }
+        //不能全是字母
+        else if (!reg2.test(psd.value)) {
+            psd_s.innerHTML = '<i class="err"></i>不能全是字母'
+            return false;
+        }
+        //密码输入与要求一致
+        else {
+            psd_s.innerHTML = '<i class="ok"></i>正确'
+            return true;
+        }
+    }
+</script>
+<script>
+    // 跳转页面
+    submitBtn.onclick = function () {
+        if (user.onblur() && psd.onblur()) {
+            document.getElementsByTagName("button")[0].button(location.href = "login.html");
+        }
+    }
+</script>
+
+<script>
+    //  注册功能  post
+    function submit() {
+        // 获取用户输入的内容
+        var user_ = document.getElementById('username').value;
+        var pass_ = document.getElementById('psd').value;
+
+        console.log(user_, pass_);
+        // 创建ajax 请求  
+
+        var ajax_ = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+
+        ajax_.open('post', 'http://127.0.0.1:3001/username');
+
+        var sendData = 'act=reg&username=' + user_ + '&pass=' + pass_;
+        ajax_.send(sendData);
+
+        ajax_.onreadystatechange = function () {
+            if (ajax_.readyState == 4) {
+                if (ajax_.status == 200) {
+                    var str = ajax_.responseText;
+                    console.log(str);
+                } else {
+                    console.log('请求错误');
+                }
+            }
+        }
+    }
+</script>
+
+<script>
+
+    //点击验证码，60秒倒计时
+    var min = 60;
+    var time;
+    $('.yanzheng').click(function () {
+        clearInterval(time);
+        time = setInterval(fn, 1000);
+    });
+
+    function fn() {
+        min = --min;
+
+        if (min > 55) {
+            $('.yanzheng').html('（' + min + '秒）重发');
+
+        }
+        else if (min = 55) {
+            $('.yanzheng').html('发送验证码')
+
+        }
+
+    }
+    $(function () {
+        $('.yanzheng').click(function () {
+            min = 60;
+            setTimeout(function () { alert("456789"); }, 5000);
+            return fn();
+
+
+        });
+
+    });
+</script>

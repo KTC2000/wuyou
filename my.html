@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>找房无忧-我的页面</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/myLogin.css">
+    <script src=""></script>
+</head>
+
+<body>
+    <!-- 顶部栏 -->
+    <header>
+        <ul>
+            <li>
+                <img class="logo" src="./image/index/logo.jpg" alt="">
+            </li>
+            <li>
+                <a href="./my.html"><img class="aa wode" src="./image/index/my.jpg" alt=""></a>
+                <a href="#"><img class="aa  xiazai" src="./image/index/xiazai.jpg" alt=""></a>
+            </li>
+        </ul>
+    </header>
+    <!-- 导航栏 -->
+    <article>
+        <div class="nav">
+            <a href="./indx.html">首页</a>
+            <a href="./my.html  ">>我的</a>
+        </div>
+        <div class="zhanghao">
+            <div class="myDeng">
+                <img class="touxiang" src="./image/my/urse2.png" alt="">
+                <p><span class="none"><i id="bigBox"></i>
+                </p>
+            </div>
+            <p><img src="./image/my/bg2.png" alt=""></p>
+        </div>
+    </article>
+
+    <form>
+        <div class="xiangqing">
+
+            <div>
+                <a href="./rentDetails.html">我关注的房源<i><img src="./image/my/right.png" alt=""></i></a>
+
+            </div>
+            <div>
+                <a href="./myAttention.html">我关注的小区<i><img src="./image/my/right.png" alt=""></i></a>
+
+            </div>
+            <div>
+                <a href="#">我的看房记录<i><img src="./image/my/right.png" alt=""></i></a>
+
+            </div>
+
+            <button id="submitBtn" onclick="submit()"> <a href="./myLogin.html">退出登录</a></button>
+        </div>
+    </form>
+
+
+</body>
+
+</html>
+
+<script src="./js/setRem.js"></script>
+<script src="./js/jquery-3.6.0.js"></script>
+<script src="./js/myCookie.js"></script>
+<script>
+    // 更改用户名
+    var div = document.querySelector('p');
+    var a = location.search.substr(1);
+    var arr = a.split('=');
+    div.innerHTML = '欢迎您,' + arr[1];
+</script>

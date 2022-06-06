@@ -1,0 +1,74 @@
+/* 输入框 */
+
+
+.inp {
+    position: relative;
+}
+
+.inp .inp1 {
+    display: block;
+    font-size: 1.2rem;
+    width: 100% !important;
+    text-indent: 0.8rem;
+    border: none !important;
+    border-bottom: solid 1px rgb(202, 200, 200) !important;
+    height: 5rem;
+    outline: none;
+    line-height: 5rem;
+    background-color: #FFF;
+}
+
+.yanzheng {
+    position: absolute;
+    line-height: 4rem;
+    color: #757575;
+    right: 0;
+    left: 70%;
+    top: 9%;
+    z-index: 99999;
+    width: 8rem;
+    text-align: center;
+    font-size: 1.2rem;
+    border: 1px solid rgb(229, 228, 228);
+}
+
+
+
+/* 登录方式 */
+
+.way {
+    display: flex;
+    justify-content: center;
+}
+
+.way li {
+    width: 50%;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    font-size: 1.7rem;
+    border-bottom: 0.5rem solid #9e9d9d;
+}
+
+.underline {
+    border-bottom: 0.5rem solid #FF8A00 !important;
+}
+
+.footer {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-left: 2.5%;
+    font-size: 1.2rem;
+
+
+}
+
+.orange {
+    color: #FF8A00
+}
+
+.gray {
+    color: gray;
+}

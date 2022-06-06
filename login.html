@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>找房无忧-登录</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/register.css">
+    <script src=""></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tab_list ul li {
+            list-style: none;
+            width: 50%;
+            border-bottom: 0.5rem solid rgb(154, 153, 153);
+        }
+
+        .tab_list {
+            display: inline-block;
+            width: 100%;
+            height: 5rem;
+            border: none;
+            background-color: rgb(216, 212, 212);
+        }
+
+        .tab_list ul {
+            width: 100%;
+            height: 5rem;
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            background-color: white;
+
+        }
+
+        .tab_list li {
+            display: inline-block;
+            line-height: 5rem;
+            cursor: pointer;
+            font-size: 1.6 rem;
+        }
+
+        .current {
+            border-bottom: 0.5rem solid red !important;
+            color: rgb(81, 81, 81);
+        }
+
+        .item {
+            display: none;
+        }
+
+        .jizhu {
+            width: 100%;
+            height: 3.5rem;
+            line-height: 3.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: baseline;
+
+        }
+
+        .jizhu input {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin: 1rem 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部栏 -->
+    <header>
+        <ul>
+            <li>
+                <img class="logo" src="./image/index/logo.jpg" alt="">
+            </li>
+            <li>
+                <a href="./myLogin.html"><img class="aa wode" src="./image/index/my.jpg" alt=""></a>
+                <a href="#"><img class="aa  xiazai" src="./image/index/xiazai.jpg" alt=""></a>
+            </li>
+        </ul>
+    </header>
+    <!-- 导航栏 -->
+    <article>
+        <div class="nav">
+            <a href="./index.html">首页</a>
+            <a href="./myLogin.html">>我的</a>
+            <a href="./login.html">>登录</a>
+        </div>
+    </article>
+    <form class="tab" action="./my.html">
+
+        <div class="tab_list">
+            <ul>
+                <li class="current">普通登录</li>
+                <li>验证码登录</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">
+                <div class="inp">
+                    <input type="text" name="uname" class="inp1" id="username" placeholder="请输入手机号"
+                        pattern="^1[3578]\d{9}$">
+                    <span id="message1"></span>
+                </div>
+                <div class="inp">
+                    <input type="password" id="password" class="inp1" placeholder="请输入密码" pattern="^\w{6,12}$">
+                    <span id="message2"></span>
+                </div>
+                <div class="jizhu"><input type="checkbox" id="remember">记住密码</div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="inp">
+                <input type="text" class="inp1" id="usertwo" placeholder="请输入手机号" pattern="^1[3578]\d{9}$">
+                <a href="#" id="getCode" class="yanzheng">发送验证码</a>
+                <span id="ver1"></span>
+            </div>
+
+            <div class="inp">
+                <input type="text" id="verific" class="inp1" placeholder="请输入短信中的验证码">
+                <span id="ver2"></span>
+            </div>
+        </div>
+        <input type="submit" onclick="login()" id="submitBtn" value="立即登录">
+
+        <ul class="footer">
+            <li><a class="orange" href="./register.html">立即注册</a></li>
+            <li><a class="gray" href="./retrieve.html">忘记密码 </a></li>
+        </ul>
+    </form>
+</body>
+
+</html>
+
+
+<script src="./js/jquery-3.6.0.js"></script>
+<script src="./js/setRem.js"></script>
+<script src="./js/form.js"></script>
+<script src="./js/myCookie.js"></script>
+
+<script>
+    // 分页显示
+
+    var tab_list = document.querySelector('.tab_list');
+    var lis = tab_list.querySelectorAll('li');
+    var items = document.querySelectorAll('.item');
+    // for循环绑定事件
+    for (var i = 0; i < lis.length; i++) {
+        // 开始给五个li 设置索引号
+        lis[i].setAttribute('index', i);
+        lis[i].onclick = function () {
+            // 1.选项卡模块
+            // 排他思想  其余的li清除 class 这个类 
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].className = '';
+            }
+            // 留下当前的 class 类
+            this.className = 'current';
+
+            // 2.显示内容模块
+            var index = this.getAttribute('index');
+            for (var i = 0; i < items.length; i++) {
+                items[i].style.display = 'none';
+            }
+            items[index].style.display = 'block';
+        }
+    }
+</script>
+
+<script>
+    // 记住密码
+    if (getCookie('remember')) {
+        document.getElementById('username').value = getCookie('username');
+        document.getElementById('password').value = getCookie('password');
+        document.getElementById('remember').checked = getCookie('remember');
+    }
+    function submit() {
+        var name = document.getElementById('username').value;
+        var pass = document.getElementById('password').value;
+        var remember = document.getElementById('remember').checked;
+        if (remember) {
+            setCookie('username', name);
+            setCookie('password', pass);
+            setCookie('remember', remember);
+        } else {
+            removeCookie('name');
+            removeCookie('pass');
+            removeCookie('remember');
+        }
+    }
+</script>
+
+<script>
+
+    //  登陆 注册功能  post
+    function login() {
+        // 获取用户输入的内容
+        var user_ = document.getElementById('username').value;
+        var pass_ = document.getElementById('pad').value;
+
+        console.log(user_, pass_);
+        // 创建ajax 请求  
+
+        var ajax_ = new XMLHttpRequest() || new ActiveXObject('Microsoft.XMLHTTP');
+
+        ajax_.open('post', 'http://127.0.0.1:3001/username');
+
+        var sendData = 'act=login&user=' + user_ + '&pass=' + pass_;
+        ajax_.send(sendData);
+
+        ajax_.onreadystatechange = function () {
+            if (ajax_.readyState == 4) {
+                if (ajax_.status == 200) {
+                    var str = ajax_.responseText;
+                    console.log(str);
+                } else {
+                    console.log('请求错误');
+                }
+            }
+        }
+    }
+</script>
